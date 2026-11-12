@@ -36,7 +36,7 @@
                             <f:for each="{vulnerabilities}" as="vulnerability">
                                 <tr class="{vulnerability.severityClass}" data-severity="{vulnerability.severity}">
                                     <td class="vcsafetycheck-severity">
-                                        <div class="vcsafetycheck-badge {vulnerability.severityClass} highlight">
+                                        <div class="vcsafetycheck-badge severity-badge {vulnerability.severityClass} highlight">
                                             <core:icon identifier="actions-exclamation-circle-alt" size="small" />
                                             <span class="align-middle">
                                                 <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.severity.label.{vulnerability.severityColor}" default="{vulnerability.severity}"/>

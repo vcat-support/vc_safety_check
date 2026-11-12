@@ -395,6 +395,11 @@
   padding-block: 2px;
   padding-inline: 10px;
 }
+.vcsafetycheck-table .severity-badge {
+  display: inline-grid;
+  grid-column-gap: 10px;
+  grid-template-columns: min-content auto;
+}
 
 /* Dark mode */
 [data-color-scheme=dark] {

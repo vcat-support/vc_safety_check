@@ -380,6 +380,11 @@ $vulnerability-table-padding: 10px;
         padding-block: 2px;
         padding-inline: 10px;
     }
+    .severity-badge {
+        display: inline-grid;
+        grid-column-gap: 10px;
+        grid-template-columns: min-content auto;
+    }
 }
 
 /* Dark mode */
