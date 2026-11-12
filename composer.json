@@ -6,6 +6,11 @@
     "homepage": "https://typo3-status.com/typo3-safety-check-information/",
     "authors": [
         {
+            "name": "VCAT Consulting GmbH",
+            "email": "info@vcat.de",
+            "role": "Company"
+        },
+        {
             "name": "Joram Wittke",
             "email": "team.t3@vcat.de",
             "role": "Developer"
@@ -19,11 +24,6 @@
             "name": "Patrick Schwalger",
             "email": "TODO@vcat.de",
             "role": "Consultant"
-        },
-        {
-            "name": "VCAT Consulting GmbH",
-            "email": "info@vcat.de",
-            "role": "Company"
         }
     ],
     "require": {
