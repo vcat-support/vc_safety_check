@@ -1,0 +1,49 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="vcsafetycheck-widget-info-row fontsize-small flex-grow-1 d-flex flex-column justify-content-around">
+    <div class="d-flex justify-content-between">
+        <div class="left-part d-flex justify-content-around flex-column">
+            <f:if condition="{lastRun} > 0">
+                <f:then>
+                    <p class="vcsafetycheck-meta text-muted">
+                        <span class="vc-icon">
+                            <core:icon identifier="actions-clock" size="small" />
+                        </span>
+                        <span class="align-middle">
+                            <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.meta.lastrun"
+                             arguments="{0: lastRunFormatted}"/>
+                        </span>
+                    </p>
+                </f:then>
+                <f:else>
+                    <span class="vc-icon accent-color-typo3">
+                        <core:icon identifier="actions-clock" size="medium" />
+                    </span>
+                    <p class="vcsafetycheck-meta text-muted">
+                        <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.meta.never"/>
+                    </p>
+                </f:else>
+            </f:if>
+        </div>
+        <div class="middle-part d-flex justify-content-around flex-column">
+            <p>
+                <span class="text-muted">
+                    <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.info.source"/>
+                </span>
+                <a href="https://typo3-status.com/typo3-api/" target="_blank" rel="noreferrer">typo3-status.com/typo3-api</a>
+            </p>
+        </div>
+        <div class="right-part d-flex justify-content-around flex-column">
+            <p>
+                <a href="https://typo3-status.com/safetycheck-faq" target="_blank" rel="noreferrer">
+                    <span class="vc-icon">
+                        <core:icon identifier="actions-question-circle" size="small" />
+                    </span>
+                    <span class="align-middle">
+                        <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.info.severity"/>
+                    </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+</html>

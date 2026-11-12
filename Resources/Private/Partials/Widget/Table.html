@@ -1,0 +1,76 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <div class="vulnerability-popup" style="display: none;">
+        <div class="vcsafetycheck-breadcrumb">
+            <nav aria-label="Breadcrumb">
+                <ol class="vcsafetycheck-breadcrumb-path">
+                    <li>
+                        <button type="button" class="btn btn-link toggle-security-table">
+                            <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.table.breadcrumb.dashboard"/>
+                        </button>
+                    </li>
+                    <li aria-current="page">
+                        <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.table.breadcrumb.detail"/>
+                    </li>
+                </ol>
+            </nav>
+            <button type="button" class="btn btn-primary toggle-security-table">
+                <core:icon identifier="actions-view-go-back" size="small" />
+                <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.table.back"/>
+            </button>
+        </div>
+        <f:if condition="{vulnerabilities}">
+            <f:then>
+                <div class="vcsafetycheck-tablewrap table-responsive">
+                    <table class="table table-striped table-hover vcsafetycheck-table">
+                        <thead>
+                            <tr>
+                                <th><f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.col.severity"/></th>
+                                <th><f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.col.package"/></th>
+                                <th><f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.col.version"/></th>
+                                <th><f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.col.fixed"/></th>
+                                <th><f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.col.advisory"/></th>
+                                <th><f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.col.summary"/></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <f:for each="{vulnerabilities}" as="vulnerability">
+                                <tr class="{vulnerability.severityClass}" data-severity="{vulnerability.severity}">
+                                    <td class="vcsafetycheck-severity">
+                                        <div class="vcsafetycheck-badge {vulnerability.severityClass} highlight">
+                                            <core:icon identifier="actions-exclamation-circle-alt" size="small" />
+                                            <span class="align-middle">
+                                                <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.severity.label.{vulnerability.severityColor}" default="{vulnerability.severity}"/>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td><strong>{vulnerability.packageName}</strong></td>
+                                    <td>
+                                        {vulnerability.packageVersion}
+                                        <br />
+                                        <span class="vcsafetycheck-badge vcsafetycheck-sev-unknown fontsize-normal" style="width: auto;">{vulnerability.packageType}</span>
+                                    </td>
+                                    <td>
+                                        <f:if condition="{vulnerability.fixedVersions}">
+                                            <f:then>
+                                                <f:for each="{vulnerability.fixedVersions}" as="fixedVersion" iteration="iterator">{fixedVersion}<f:if condition="!{iterator.isLast}">, </f:if></f:for>
+                                                <br />
+                                                <span class="vcsafetycheck-badge vcsafetycheck-sev-ok fontsize-normal" style="width: auto;">Update verfügbar</span>
+                                            </f:then>
+                                            <f:else>–</f:else>
+                                        </f:if></td>
+                                    <td><a href="{vulnerability.advisoryUrl}" target="_blank" rel="noreferrer">{vulnerability.osvId}</a></td>
+                                    <td>{vulnerability.summary}</td>
+                                </tr>
+                            </f:for>
+                        </tbody>
+                    </table>
+                </div>
+            </f:then>
+            <f:else>
+                <div class="vcsafetycheck-empty callout callout-success">
+                    <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.table.empty"/>
+                </div>
+            </f:else>
+        </f:if>
+    </div>
+</html>

@@ -1,0 +1,32 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Vcat\Vcsafetycheck\:
+    resource: '../Classes/*'
+    exclude:
+      - '../Classes/Domain/Model/*'
+
+  Vcat\Vcsafetycheck\Command\SafetyCheckCommand:
+    tags:
+      - name: 'console.command'
+        command: 'vc_safety_check:check'
+        description: 'Scan all installed packages for known security vulnerabilities (OSV.dev) and store the result.'
+        schedulable: true
+
+  # Backend AJAX controller must be public so the route resolver can fetch it.
+  Vcat\Vcsafetycheck\Controller\SafetyCheckAjaxController:
+    public: true
+
+  Vcat\Vcsafetycheck\Widgets\SafetyCheckWidget:
+    tags:
+      - name: dashboard.widget
+        identifier: vc_safety_check.overview
+        groupNames: 'general'
+        title: 'LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.overview.title'
+        description: 'LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.overview.description'
+        iconIdentifier: 'vc_safety_check-widget'
+        height: 'large'
+        width: 'large'

@@ -1,0 +1,38 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="vcsafetycheck-toolbar row flex-grow-1">
+    <div class="columns col-6">
+        <button type="button" class="btn btn-primary btn-block btn-full-height" data-vcsafetycheck-action="run"
+                data-label-title="{f:translate(key: 'LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.notification.title')}"
+                data-label-success="{f:translate(key: 'LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.notification.success')}"
+                data-label-failed="{f:translate(key: 'LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.notification.failed')}"
+                data-label-error="{f:translate(key: 'LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.notification.error')}">
+            <span class="vc-icon vcsafetycheck-btn-icon">
+                <core:icon identifier="actions-refresh" size="medium" />
+            </span>
+            <span class="vcsafetycheck-btn-text vcsafetycheck-run-label">
+                <span class="vcsafetycheck-btn-title">
+                    <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.button.run"/>
+                </span>
+            </span>
+            <span class="vcsafetycheck-run-spinner vcsafetycheck-btn-spinner vc-icon" hidden>
+                <core:icon identifier="spinner-circle" size="medium" />
+            </span>
+        </button>
+    </div>
+    <div class="columns col-6">
+        <a class="btn btn-primary-reverse btn-block btn-twoline" target="_blank" href="https://typo3-status.com/safetycheck-mail">
+            <span class="vc-icon vcsafetycheck-btn-icon">
+                <core:icon identifier="actions-envelope" size="medium" />
+            </span>
+            <span class="vcsafetycheck-btn-text">
+                <span class="vcsafetycheck-btn-title">
+                    <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.button.contact"/>
+                </span>
+                <span class="vcsafetycheck-btn-subtitle">
+                    <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.button.contact_addition"/>
+                </span>
+            </span>
+        </a>
+    </div>
+</div>
+</html>

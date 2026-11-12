@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="EXT:vc_safety_check/Resources/Private/Language/locallang.xlf" date="2026-07-28T00:00:00Z" product-name="vc_safety_check">
+        <header/>
+        <body>
+            <trans-unit id="widget.overview.title">
+                <source>T3 Safety Check</source>
+            </trans-unit>
+            <trans-unit id="widget.overview.description">
+                <source>Lists known security vulnerabilities of the installed TYPO3 core packages, extensions and their dependencies. Includes a button to run a fresh scan and to notify the team by mail.</source>
+            </trans-unit>
+            <trans-unit id="widget.button.run">
+                <source>Run check now</source>
+            </trans-unit>
+            <trans-unit id="widget.button.contact">
+                <source>Request support</source>
+            </trans-unit>
+            <trans-unit id="widget.button.contact_addition">
+                <source>We are happy to help you.</source>
+            </trans-unit>
+            <trans-unit id="widget.button.premium">
+                <source>More features with Premium</source>
+            </trans-unit>
+            <trans-unit id="widget.button.premium_addition">
+                <source>Advanced analyses, automatic checks and more.</source>
+            </trans-unit>
+            <trans-unit id="widget.notification.title">
+                <source>T3 Safety Check</source>
+            </trans-unit>
+            <trans-unit id="widget.notification.success">
+                <source>%1$s vulnerability finding(s) in %2$s packages.</source>
+            </trans-unit>
+            <trans-unit id="widget.notification.failed">
+                <source>The check failed.</source>
+            </trans-unit>
+            <trans-unit id="widget.notification.error">
+                <source>The check could not be run.</source>
+            </trans-unit>
+            <trans-unit id="widget.error.runfailed">
+                <source>Safety check failed: %s</source>
+            </trans-unit>
+            <trans-unit id="widget.meta.never">
+                <source>No check performed yet.</source>
+            </trans-unit>
+            <trans-unit id="widget.meta.lastrun">
+                <source>Last check: %s</source>
+            </trans-unit>
+            <trans-unit id="widget.meta.vulnerabilities_found">
+                <source>%d Vulnerabilities found</source>
+            </trans-unit>
+            <trans-unit id="widget.status.title">
+                <source>Security status</source>
+            </trans-unit>
+            <trans-unit id="widget.status.state.critical">
+                <source>critical</source>
+            </trans-unit>
+            <trans-unit id="widget.status.state.high">
+                <source>at acute risk</source>
+            </trans-unit>
+            <trans-unit id="widget.status.state.moderate">
+                <source>at risk</source>
+            </trans-unit>
+            <trans-unit id="widget.status.state.low">
+                <source>needs improvement</source>
+            </trans-unit>
+            <trans-unit id="widget.status.state.ok">
+                <source>secure</source>
+            </trans-unit>
+            <trans-unit id="widget.status.state.unknown">
+                <source>not assessed</source>
+            </trans-unit>
+            <trans-unit id="widget.severity.info.critical">
+                <source><![CDATA[<p><strong>Critical: Critical security risks requiring immediate action.</strong></p><p>These vulnerabilities are often exploitable remotely and without authentication and can lead to a complete compromise of the system. Affected components must be updated or secured immediately.</p><p><strong>Recommendation:</strong> Act immediately and install the updates right away.</p>]]></source>
+            </trans-unit>
+            <trans-unit id="widget.severity.info.high">
+                <source><![CDATA[<p><strong>High: High security risks with potentially serious impact.</strong></p><p>Under certain circumstances, these vulnerabilities can allow attackers to gain unauthorised access to functions, data or systems. Affected components should be updated or secured promptly.</p><p><strong>Recommendation:</strong> Review at short notice and fix as soon as possible.</p>]]></source>
+            </trans-unit>
+            <trans-unit id="widget.severity.info.moderate">
+                <source><![CDATA[<p><strong>Moderate: Moderate security risks with limited impact.</strong></p><p>Exploitation often requires additional preconditions. These vulnerabilities should be addressed during the next maintenance.</p><p><strong>Recommendation:</strong> Schedule for the next planned update.</p>]]></source>
+            </trans-unit>
+            <trans-unit id="widget.severity.info.low">
+                <source><![CDATA[<p><strong>Low: Low security risks with minor impact.</strong></p><p>These findings usually pose no immediate risk, but should be monitored and taken into account in future updates.</p><p><strong>Recommendation:</strong> Fix within the regular maintenance cycle.</p>]]></source>
+            </trans-unit>
+            <trans-unit id="widget.severity.info.unknown">
+                <source>Unknown: no severity rating is available for these findings yet. Check the advisory and assess the risk yourself.</source>
+            </trans-unit>
+            <trans-unit id="widget.severity.label.critical">
+                <source>Critical</source>
+            </trans-unit>
+            <trans-unit id="widget.severity.label.high">
+                <source>High</source>
+            </trans-unit>
+            <trans-unit id="widget.severity.label.moderate">
+                <source>Moderate</source>
+            </trans-unit>
+            <trans-unit id="widget.severity.label.low">
+                <source>Low</source>
+            </trans-unit>
+            <trans-unit id="widget.severity.label.unknown">
+                <source>Unknown</source>
+            </trans-unit>
+            <trans-unit id="widget.table.empty">
+                <source>No security vulnerabilities are currently known.</source>
+            </trans-unit>
+            <trans-unit id="widget.table.back">
+                <source>Back to overview</source>
+            </trans-unit>
+            <trans-unit id="widget.table.breadcrumb.dashboard">
+                <source>Dashboard</source>
+            </trans-unit>
+            <trans-unit id="widget.table.breadcrumb.detail">
+                <source>Detail</source>
+            </trans-unit>
+            <trans-unit id="widget.col.severity">
+                <source>Severity</source>
+            </trans-unit>
+            <trans-unit id="widget.col.package">
+                <source>Package / Extension</source>
+            </trans-unit>
+            <trans-unit id="widget.col.version">
+                <source>Installed Version</source>
+            </trans-unit>
+            <trans-unit id="widget.col.fixed">
+                <source>Fixed in</source>
+            </trans-unit>
+            <trans-unit id="widget.col.advisory">
+                <source>Advisory</source>
+            </trans-unit>
+            <trans-unit id="widget.col.summary">
+                <source>Description</source>
+            </trans-unit>
+            <trans-unit id="widget.version.title">
+                <source>TYPO3 version</source>
+            </trans-unit>
+            <trans-unit id="widget.version.state.ok">
+                <source>Up to date</source>
+            </trans-unit>
+            <trans-unit id="widget.version.state.update">
+                <source>Update available</source>
+            </trans-unit>
+            <trans-unit id="widget.version.state.eol">
+                <source>Security support ended</source>
+            </trans-unit>
+            <trans-unit id="widget.version.state.eoes">
+                <source>Support ended completely</source>
+            </trans-unit>
+            <trans-unit id="widget.version.state.unknown">
+                <source>Status unknown</source>
+            </trans-unit>
+            <trans-unit id="widget.version.branchlatest">
+                <source>Current: %s</source>
+            </trans-unit>
+            <trans-unit id="widget.version.newest">
+                <source>Latest: %s</source>
+            </trans-unit>
+            <trans-unit id="widget.info.source">
+                <source>Source:</source>
+            </trans-unit>
+            <trans-unit id="widget.info.severity">
+                <source>What do status and risk levels mean?</source>
+            </trans-unit>
+            <trans-unit id="widget.footer.claim">
+                <source>Protect your website – keep TYPO3 and extensions up to date.</source>
+            </trans-unit>
+            <trans-unit id="widget.footer.logo.alt">
+                <source>VCAT logo</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

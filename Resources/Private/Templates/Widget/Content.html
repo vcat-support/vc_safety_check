@@ -1,0 +1,19 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="vcsafetycheck-widget d-flex flex-column">
+    <div class="vcsafetycheck-widget-content flex-grow-1 d-flex justify-content-between flex-column">
+        <div class="row flex-grow-1">
+            <div class="columns col-6" style="border-right: 1px solid lightgrey;">
+                <f:render partial="Widget/Version" arguments="{versionStatus: versionStatus}"/>
+            </div>
+            <div class="columns col-6">
+                <f:render partial="Widget/Status" arguments="{systemStatus: systemStatus, total: total}"/>
+            </div>
+        </div>
+        <f:render partial="Widget/Summary" arguments="{severityCounts: severityCounts}"/>
+        <f:render partial="Widget/Toolbar"/>
+        <f:render partial="Widget/Info" arguments="{lastRun: lastRun, lastRunFormatted: lastRunFormatted}"/>
+        <f:render partial="Widget/Table" arguments="{vulnerabilities: vulnerabilities}"/>
+    </div>
+    <f:render partial="Widget/Footer" arguments="{vulnerabilities: vulnerabilities}"/>
+</div>
+</html>

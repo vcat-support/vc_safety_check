@@ -1,0 +1,54 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="row">
+    <div class="col-2 d-flex flex-column justify-content-around">
+        <span class="vc-icon color-typo3 size-ultra">
+            <core:icon identifier="actions-brand-typo3" size="mega" />
+        </span>
+    </div>
+    <div class="col-10">
+        <div class="fontsize-normal">
+            <span>
+                <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.version.title"/>
+            </span>
+        </div>
+        <div class="fontsize-big">
+            <span><strong>
+                {versionStatus.currentVersion}
+            </strong></span>
+            <span class="vcsafetycheck-badge {versionStatus.severityClass} fontsize-normal" style="width: auto;">
+                <f:switch expression="{versionStatus.state}">
+                    <f:case value="ok">
+                        <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.version.state.ok"/>
+                    </f:case>
+                    <f:case value="update">
+                        <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.version.state.update"/>
+                    </f:case>
+                    <f:case value="eol">
+                        <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.version.state.eol"/>
+                    </f:case>
+                    <f:case value="eoes">
+                        <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.version.state.eoes"/>
+                    </f:case>
+                    <f:defaultCase>
+                        <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.version.state.unknown"/>
+                    </f:defaultCase>
+                </f:switch>
+            </span>
+        </div>
+        <div class="fontsize-normal">
+            <f:if condition="{versionStatus.latestCycleVersion}">
+                <span class="vcsafetycheck-version-current">
+                    <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.version.branchlatest"
+                                 arguments="{0: versionStatus.latestCycleVersion}"/>
+                </span>
+            </f:if>
+            <f:if condition="{versionStatus.majorUpdateAvailable}">
+                <span class="vcsafetycheck-version-newest">
+                    <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.version.newest"
+                                 arguments="{0: versionStatus.latestVersion}"/>
+                </span>
+            </f:if>
+        </div>
+    </div>
+</div>
+</html>

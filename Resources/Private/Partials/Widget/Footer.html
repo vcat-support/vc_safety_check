@@ -1,0 +1,23 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="vcsafetycheck-widget-footer flex-grow-0 fontsize-small">
+    <div class="d-flex justify-content-between">
+        <div class="left-part d-flex justify-content-around flex-column">
+            <div>
+                <span class="vc-icon accent-color-typo3">
+                    <core:icon identifier="module-security" size="medium" />
+                </span>
+                <span>
+                    <f:translate key="LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.footer.claim"/>
+                </span>
+            </div>
+        </div>
+        <div class="right-part d-flex justify-content-around flex-column">
+            <a href="https://www.vcat.de/" target="_blank" rel="noreferrer">
+                <img src="{f:uri.resource(path: 'EXT:vc_safety_check/Resources/Public/Images/VCAT-Logo.webp')}"
+                     alt="{f:translate(key: 'LLL:EXT:vc_safety_check/Resources/Private/Language/locallang.xlf:widget.footer.logo.alt')}"
+                     class="img-fluid"/>
+            </a>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,424 @@
+/* Variables */
+$font-color-light: #fff;
+$font-color-dark: #2b2b2b;
+
+$color-typo3: #ff8700;
+$color-typo3-dark: #e67a00;
+
+$color-lightgrey: lightgrey;
+$color-tablegrey: #f9f9f9;
+$color-darkgrey: lightgrey;
+$color-white: #fff;
+$color-black: #000;
+
+$font-size: (
+    small: 1.125rem,
+    normal: 1.5rem,
+    big: 2.25rem,
+    table: 0.875rem,
+);
+
+$paddings: (
+    small: 5px,
+    medium: 20px,
+    large: 30px,
+    popup: 50px,
+);
+
+$severity-colors: (
+    critical: rgba(123, 0, 0, 1),       // #7B0000
+    high: rgba(208, 2, 27, 1),          // #D0021B
+    moderate: rgba(188, 87, 0, 1),      // #B45309
+    low: rgba(126, 109, 0, 1),          // #856B00
+    unknown: rgba(89, 89, 89, 1),       // #595959
+    none: rgba(46, 125, 50, 1),         // #2E7D32
+    ok: rgba(46, 125, 50, 1),           // #2E7D32
+);
+
+$severity-color-bg-text-color: (
+    critical: #fff,
+    high: #fff,
+    moderate: #fff,
+    low: #fff,
+    unknown: #fff,
+    none: #fff,
+    ok: #fff,
+);
+
+/* Widget Overrides */
+.dashboard-item[data-widget-key="vc_safety_check.overview"] {
+    .widget-header + .widget-content {
+        //take away the headerheight (2* padding top and bottom and the action-icon-size)
+        height: calc(100% - 2 * map-get($paddings, medium) - 1.25 * map-get($font-size, normal));
+        position: relative;
+    }
+
+    .widget-header, .widget-content, .widget-title {
+        font-size: map-get($font-size, normal);
+    }
+
+    .widget-header, .widget-content {
+        background-color: $color-white;
+    }
+
+    .widget-header {
+        padding: map-get($paddings, medium);
+    }
+    // The Icons have problems with setting the font-size in the header as the rules above
+    .widget-actions {
+        font-size: 0;
+    }
+}
+
+/* General Basics */
+@each $name, $color in $severity-colors {
+    .vcsafetycheck-sev-#{$name} {
+        color: $color;
+    }
+}
+
+.btn-full-height {
+    height: 100%;
+}
+
+.btn-twoline {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    height: 100%;
+    text-align: start;
+    white-space: normal;
+}
+
+.color-black {
+    color: $color-black;
+}
+
+.align-middle {
+    vertical-align: middle;
+}
+
+.btn-primary-reverse {
+    --typo3-btn-color: var(--typo3-state-primary-bg);
+    --typo3-btn-bg: var(--typo3-state-primary-color);
+    --typo3-btn-border-color: var(--typo3-state-primary-bg);
+    --typo3-btn-hover-color: var(--typo3-state-primary-hover-bg);
+    --typo3-btn-hover-bg: var(--typo3-state-primary-hover-color);
+    --typo3-btn-hover-border-color: var(--typo3-state-primary-hover-bg);
+    --typo3-btn-focus-color: var(--typo3-state-primary-focus-bg);
+    --typo3-btn-focus-bg: var(--typo3-state-primary-focus-color);
+    --typo3-btn-focus-border-color: var(--typo3-state-primary-focus-bg);
+    --typo3-btn-disabled-color: var(--typo3-state-primary-disabled-color);
+    --typo3-btn-disabled-bg: var(--typo3-state-primary-disabled-bg);
+    --typo3-btn-disabled-border-color: var(--typo3-state-primary-disabled-border-color)
+}
+
+// Icon Stuff
+.vc-icon {
+    vertical-align: middle;
+
+    .icon {
+        vertical-align: middle;
+    }
+
+    &.color-typo3 {
+        --icon-color-primary: #{$color-typo3};
+        color: $color-typo3;
+    }
+    &.accent-color-typo3 .icon {
+        --icon-color-accent: #{$color-typo3};
+    }
+    &.size-ultra {
+        .icon {
+            width: 80px;
+            height: 80px;
+        }
+    }
+
+    @each $name, $color in $severity-colors {
+        &.color-#{$name} {
+            --icon-color-primary: #{$color};
+            color: $color;
+        }
+    }
+}
+
+// Fontsize-Classes
+@each $name, $size in $font-size {
+    .fontsize-#{$name} {
+        font-size: $size;
+    }
+}
+
+/* Specific Styles */
+.vcsafetycheck-widget {
+    height: 100%;
+}
+.vcsafetycheck-widget-content {
+    gap: map-get($paddings, medium);
+    padding: map-get($paddings, large);
+    padding-bottom: 10px;
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.vcsafetycheck-widget-footer {
+    padding-inline: map-get($paddings, large);
+    padding-block: map-get($paddings, medium);
+    background-color: rgba(0, 0, 0, .03);
+
+    img {
+        height: 40px;
+    }
+}
+
+// Version-Part
+.vcsafetycheck-badge {
+    display: inline-block;
+    padding-inline: map-get($paddings, medium);
+    border-radius: 10px;
+    vertical-align: text-bottom;
+
+    @each $name, $color in $severity-colors {
+        &.vcsafetycheck-sev-#{$name} {
+            background-color: rgba($color, .2);
+        }
+    }
+
+    &.highlight {
+        @each $name, $color in $severity-colors {
+            &.vcsafetycheck-sev-#{$name} {
+                background-color: $color;
+                color: map-get($severity-color-bg-text-color, $name);
+            }
+        }
+    }
+}
+
+.vcsafetycheck-version-newest {
+    font-weight: 600;
+}
+
+// System-Status-Part
+.vcsafetycheck-system-status {
+    cursor: pointer;
+}
+
+.vcsafetycheck-status-message {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+// Severity-Overview-Part
+.vcsafetycheck-summary .summary-box {
+    padding: map-get($paddings, medium);
+    border-top: 1px solid $color-lightgrey;
+    border-bottom: 1px solid $color-lightgrey;
+
+    &:first-child {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-left: 1px solid $color-lightgrey;
+    }
+    &:last-child {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-right: 1px solid $color-lightgrey;
+    }
+
+    @each $name, $color in $severity-colors {
+        &.vcsafetycheck-sev-#{$name} {
+            background-color: rgba($color, .05);
+        }
+    }
+}
+
+// Severity-Info-Popup
+.vcsafetycheck-info-popover {
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Infoline-Part
+
+// Toolbar (Buttons)-Part
+.vcsafetycheck-toolbar {
+    .btn {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.75rem;
+        padding-inline: map-get($paddings, medium);
+        font-size: map-get($font-size, normal);
+    }
+
+    .vcsafetycheck-btn-icon {
+        display: flex;
+        flex: 0 0 2rem;
+        justify-content: center;
+    }
+
+    .vcsafetycheck-btn-spinner {
+        flex: 0 0 auto;
+        margin-inline-start: auto;
+    }
+
+    .vcsafetycheck-btn-text {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        gap: 0.125rem;
+        min-width: 0;
+        line-height: 1.25;
+    }
+
+    .vcsafetycheck-btn-title {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .vcsafetycheck-btn-subtitle {
+        font-size: 1rem;
+        opacity: .85;
+        text-align: center;
+    }
+}
+
+.btn-premium {
+    --typo3-btn-color: #{$font-color-dark};
+    --typo3-btn-bg: #{$color-typo3};
+    --typo3-btn-border-color: #{$color-typo3};
+    --typo3-btn-hover-color: #{$font-color-dark};
+    --typo3-btn-hover-bg: #{$color-typo3-dark};
+    --typo3-btn-hover-border-color: #{$color-typo3-dark};
+    --typo3-btn-focus-color: #{$font-color-dark};
+    --typo3-btn-focus-bg: #{$color-typo3-dark};
+    --typo3-btn-focus-border-color: #{$color-typo3-dark};
+}
+
+// Vulnerability-Popup
+$vulnerability-table-padding: 10px;
+
+.vulnerability-popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1071; //Bootstrap Popover is z-index 1070
+    background-color: $color-white;
+    display: flex;
+    flex-direction: column;
+
+    .vcsafetycheck-tablewrap {
+        overflow: auto;
+        flex: 1 1 auto;
+        min-height: 0;
+    }
+}
+
+.vcsafetycheck-breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: map-get($paddings, medium);
+    padding: $vulnerability-table-padding;
+    background-color: $color-tablegrey;
+    border-bottom: 1px solid $color-lightgrey;
+    font-size: map-get($font-size, table);
+
+    .vcsafetycheck-breadcrumb-path {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li + li::before {
+            content: "/";
+            padding-inline: map-get($paddings, small);
+            color: $color-darkgrey;
+        }
+
+        li[aria-current="page"] {
+            font-weight: 600;
+        }
+
+        .btn-link {
+            padding: 0;
+            font-size: inherit;
+            vertical-align: baseline;
+        }
+    }
+}
+
+.vcsafetycheck-table {
+    font-size: map-get($font-size, table);
+
+    th {
+        background-color: $color-tablegrey;
+        padding: $vulnerability-table-padding;
+    }
+    td {
+        background-color: transparent;
+        padding-inline: $vulnerability-table-padding;
+        padding-block: $vulnerability-table-padding/2;
+        padding:$vulnerability-table-padding;
+        vertical-align: top;
+
+        &.vcsafetycheck-severity {
+            vertical-align: middle;
+        }
+    }
+
+    .vcsafetycheck-badge {
+        font-size: map-get($font-size, table);
+        margin-top: 5px;
+        padding-block: 2px;
+        padding-inline: 10px;
+    }
+}
+
+/* Dark mode */
+[data-color-scheme="dark"] {
+    .color-black {
+        color: $color-white;
+    }
+    .color-white {
+        color: $color-black;
+    }
+
+    .vcsafetycheck-summary {
+
+    }
+
+    .vulnerability-popup {
+        background-color: $color-black;
+    }
+
+    .vcsafetycheck-breadcrumb {
+        background-color: transparent;
+    }
+
+    /* Slightly stronger tints so rows stay readable on dark backgrounds */
+    @each $name, $color in $severity-colors {
+        .vcsafetycheck-table tr.vcsafetycheck-sev-#{$name} > td {
+            background-color: rgba($color, .3);
+        }
+    }
+
+    .vcsafetycheck-table code {
+        font-size: 1rem;
+        color: var(--typo3-table-color) !important;
+    }
+
+    .dashboard-item[data-widget-key="vc_safety_check.overview"] {
+        .widget-header, .widget-content {
+            background-color: $color-black;
+        }
+    }
+}
+
