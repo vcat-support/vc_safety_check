@@ -2,7 +2,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'VC Safety Check',
-    'description' => 'Checks all installed extensions, core packages and their dependencies for known security vulnerabilities via the OSV.dev API, stores the results in the database and displays them in a dashboard widget with severity colour coding. Triggerable via scheduler task and via a button in the widget.',
+    'description' => 'Checks all installed extensions, core packages and their dependencies for known security vulnerabilities via our API, stores the results and displays them in a dashboard widget.',
     'category' => 'module',
     'author' => 'VCAT Consulting GmbH',
     'author_email' => 'team.t3@vcat.de',
