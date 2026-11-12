@@ -1,7 +1,7 @@
 {
     "name": "vcat/vc-safety-check",
     "type": "typo3-cms-extension",
-    "description": "Checks all installed extensions, core packages and their dependencies for known security vulnerabilities via the OSV.dev API, stores the results and displays them in a dashboard widget.",
+    "description": "Checks all installed extensions, core packages and their dependencies for known security vulnerabilities via our API, stores the results and displays them in a dashboard widget.",
     "license": "GPL-2.0-or-later",
     "homepage": "https://typo3-status.com/typo3-safety-check-information/",
     "authors": [
